@@ -22,3 +22,17 @@ const promptFunc = async (input) => { //using input parameter to capture user qu
 };
 
 promptFunc();
+
+const init = () => {
+    inquirer.prompt([
+       {
+        type: 'input',
+        name: 'name',
+        message: 'Ask a coding question:',
+       }, 
+    ]).then((inquirerResponse) => {
+        promptFunc(inquirerResponse.name) //the inquirer.prompt() method returns a promise--so we will need to call the promptFunc() inside a subsequent .then() method.
+    });
+};
+
+init();
